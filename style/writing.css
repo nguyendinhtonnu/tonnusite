@@ -1,0 +1,241 @@
+body {
+    font-family: 'Computer Modern', serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    /* Background color set to white */
+}
+
+/* This container will center content like the image/list and writing list */
+.center-container {
+    max-width: 1000px;
+    /* Increased max-width for the main container */
+    margin: 0 auto;
+    margin-top: 10vh;
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+    /* Include padding in width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* This centers items horizontally in a column flex container */
+}
+
+/* Container specifically for the image and list side-by-side - Keeping for completeness if you add it back */
+.image-and-list-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+    justify-content: center;
+    /* Center items when wrapped */
+    max-width: 800px;
+    /* Constraint this inner container if needed, or let it fill center-container */
+    width: 100%;
+    /* Take full width of its parent up to max-width */
+}
+
+
+.circular-image-container {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #000;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
+.circular-image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+}
+
+.profile-links {
+    flex-grow: 1;
+    /* Allow list to grow */
+    min-width: 150px;
+    /* Ensure a minimum width */
+}
+
+.profile-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-links li {
+    margin-bottom: 10px;
+    font-size: 20px;
+    /* Line height from .writing-list li */
+    line-height: 1.6;
+}
+
+/* --- Global Link Styling --- */
+/* Apply link styles to all <a> tags */
+a {
+    text-decoration: none;
+    /* Remove underline */
+    color: #0000ff;
+    /* Set link color to blue */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+/* Apply hover styles to all <a> tags */
+a:hover {
+    background-color: rgba(0, 0, 255, 0.1);
+    /* Translucent blue background */
+}
+
+/* --- End Global Link Styling --- */
+
+
+/* --- Styles for the writing list --- */
+
+.writing-list {
+    max-width: 900px;
+    /* Increased max-width to make the list wider */
+    width: 100%;
+    /* Ensure it takes up available space within max-width */
+    margin-bottom: 40px;
+    /* Add space between list and back link */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.writing-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.writing-list li {
+    margin-bottom: 12px;
+    /* Slightly increased margin */
+    font-size: 20px;
+    line-height: 1.6;
+    /* Added line height for readability */
+}
+
+/* Style for italic text within the writing list */
+.writing-list em,
+.writing-list i {
+    color: #666;
+    /* Slightly gray color */
+    font-style: italic;
+    /* Ensure it's italic */
+}
+
+/* Style for the back link */
+.back-link {
+    display: inline-block;
+    /* Keep as inline-block for text-sized hover */
+    font-size: 24px;
+    /* Make the arrow a bit larger */
+    text-decoration: none;
+    /* Remove underline */
+    color: #000;
+    /* Set color to black or a dark gray (overrides global blue) */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    /* Smooth transition */
+    padding: 0 5px;
+    /* Added some padding for the hover effect */
+    margin-top: 20px;
+    /* Space above the back link */
+    margin-bottom: 20px;
+    /* Space below the back link */
+
+    /* --- Key changes for left alignment and spacing --- */
+    align-self: flex-start;
+    /* Override parent's align-items: center */
+    margin-left: 15px;
+    /* Add a left margin to move it from the edge */
+}
+
+.back-link:hover {
+    color: #555;
+    /* Darken color slightly on hover */
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Added a subtle background on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .center-container {
+        max-width: 100%;
+        /* Allow container to be full width on small screens */
+        padding: 0 10px;
+        /* Add some padding on smaller screens */
+    }
+
+    /* Adjusted image and list container for smaller screens */
+    .image-and-list-container {
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: center;
+        /* Center stacked items */
+        gap: 15px;
+        /* Reduce gap */
+    }
+
+    .circular-image-container {
+        width: 180px;
+        /* Slightly smaller image */
+        height: 180px;
+    }
+
+    .profile-links {
+        width: 100%;
+        /* Allow list to take full width below image */
+        min-width: unset;
+        /* Remove min-width constraint */
+        text-align: center;
+        /* Center text/links below image */
+    }
+
+    .profile-links ul {
+        padding: 0;
+        /* Ensure no padding */
+    }
+
+    .profile-links li {
+        margin-bottom: 8px;
+        /* Reduce margin */
+        font-size: 18px;
+        /* Slightly smaller font */
+        text-align: center;
+        /* Center list items */
+    }
+
+    .writing-list {
+        max-width: 100%;
+        /* Allow list to be full width on smaller screens */
+        padding: 0 10px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .back-link {
+        font-size: 20px;
+        /* Slightly smaller font for arrow */
+        padding: 0 5px;
+        /* Ensure padding is still there */
+        align-self: flex-start;
+        /* Ensure left alignment on small screens too */
+        margin-top: 15px;
+        /* Adjust margin top for smaller screens */
+        margin-bottom: 15px;
+        /* Adjust margin bottom for smaller screens */
+        /* Adjust left margin for smaller screens */
+    }
+}
